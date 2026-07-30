@@ -57,8 +57,10 @@ git clone https://github.com/eudanielhenrique/daniel-skills.git ~/.claude/skills
 ### Atualização
 
 ```bash
-cd ~/.claude/skills/daniel-skills && git pull && ./setup
+~/.claude/skills/daniel-skills/update
 ```
+
+Puxa o que tiver de novo e reinstala os symlinks.
 
 ### Desinstalação
 
