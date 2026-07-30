@@ -22,6 +22,7 @@ daniel-skills resolve isso. Você codifica o padrão uma vez. Depois ele está s
 |---|---|
 | `/dh-firestore-backup` | Exporta collections do Firestore para JSON — todas ou seleção específica, com subcollections e logging |
 | `/dh-firestore-restore` | Restaura dados no Firestore com conversão de tipos, clearCollection e confirmação explícita de destino |
+| `/dh-designer-system-ba` | Aplica o design system real do Bora Automatizar — tipografia, cores, botões, estrutura de seções e animação, extraídos do site em produção |
 
 ---
 
@@ -62,7 +63,7 @@ cd ~/.claude/skills/daniel-skills && git pull && ./setup
 ### Desinstalação
 
 ```bash
-for s in dh-firestore-backup dh-firestore-restore; do rm -rf ~/.claude/skills/$s; done && rm -rf ~/.claude/skills/daniel-skills
+for s in dh-firestore-backup dh-firestore-restore dh-designer-system-ba; do rm -rf ~/.claude/skills/$s; done && rm -rf ~/.claude/skills/daniel-skills
 ```
 
 ---
