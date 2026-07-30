@@ -1,4 +1,4 @@
-# daniel-skills (v1.1)
+# daniel-skills (v1.2)
 
 Skills operacionais para o Claude Code: backup/restore do Firestore e aplicação do design system do Bora Automatizar.
 
