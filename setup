@@ -9,18 +9,32 @@ echo "  bora-automatizar-skills"
 echo "  ------------------------"
 echo ""
 
+# Utilitários Bora Automatizar
 for skill in ba-firestore-backup ba-firestore-restore ba-designer-system ba-proposta-comercial ba-oferta-produtizada ba-monitoramento-equipe ba-integracoes ba-controle-operacional ba-init; do
     target="$SKILLS_DIR/$skill"
-    if [ -L "$target" ] || [ -e "$target" ]; then
-        rm -rf "$target"
-    fi
+    if [ -L "$target" ] || [ -e "$target" ]; then rm -rf "$target"; fi
     ln -s "$SCRIPT_DIR/$skill" "$target"
+    echo "  /$skill instalado"
+done
+
+# ba-eter hub
+target="$SKILLS_DIR/ba-eter"
+if [ -L "$target" ] || [ -e "$target" ]; then rm -rf "$target"; fi
+ln -s "$SCRIPT_DIR/ba-eter" "$target"
+echo "  /ba-eter instalado"
+
+# Sub-skills Eter (dentro de ba-eter/)
+for skill in eter-briefing eter-pipeline eter-scope eter-proposta eter-roadmap-gen eter-weekly; do
+    target="$SKILLS_DIR/$skill"
+    if [ -L "$target" ] || [ -e "$target" ]; then rm -rf "$target"; fi
+    ln -s "$SCRIPT_DIR/ba-eter/$skill" "$target"
     echo "  /$skill instalado"
 done
 
 echo ""
 echo "  Skills instaladas:"
 echo ""
+echo "  — Utilitários Bora Automatizar —"
 echo "    /ba-firestore-backup     Exportar collections do Firestore para JSON"
 echo "    /ba-firestore-restore    Restaurar dados do Firestore a partir de JSON"
 echo "    /ba-designer-system      Aplicar o design system do Bora Automatizar"
@@ -31,10 +45,17 @@ echo "    /ba-integracoes          Conectar sistemas existentes do cliente (Shee
 echo "    /ba-controle-operacional Controle operacional via CSV pro cliente sem sistema"
 echo "    /ba-init                 Início de projeto novo ou atualização de CHANGELOG/ARCHITECTURE/ROADMAP"
 echo ""
-echo "  Pré-requisito:"
-echo "    - serviceAccountKey.json na raiz do projeto"
+echo "  — Eter CRM (ba-eter/) —"
+echo "    /ba-eter                 Hub: fluxo completo + quando usar cada skill do Eter"
+echo "    /eter-briefing           Briefing pré-reunião + qualificação salva no painel"
+echo "    /eter-pipeline           Snapshot do pipeline com alertas e próximas ações"
+echo "    /eter-scope              Escopo técnico pós-call: módulos, stack, estimativa"
+echo "    /eter-proposta           Proposta comercial (WhatsApp ou PDF)"
+echo "    /eter-roadmap-gen        Roadmap 6 semanas personalizado para o cliente"
+echo "    /eter-weekly             Relatório semanal de todos os clientes ativos"
 echo ""
-echo "  O pacote firestore-export-import é instalado automaticamente ao invocar cada skill."
+echo "  Pré-requisito Firestore:"
+echo "    - serviceAccountKey.json na raiz do projeto"
 echo ""
 echo "  Pronto."
 echo ""

@@ -4,11 +4,22 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ---
 
-## [1.7.0] — 2026-08-02
+## [1.8.0] — 2026-08-02
 
 ### Skills
 
 - `/ba-init` (nova) — duas cabeças dependendo do estado do projeto. Em projeto novo: escolhe stack com justificativa, monta estrutura, qualidade e segurança day-1 (Docker quando aplicável), ancorada nos padrões Bora Automatizar (Next.js/Tailwind, Firestore, `/ba-integracoes`, deploy Docker/Coolify). Em projeto em andamento: analisa git log, estrutura de pastas, manifests e TODOs reais pra atualizar CHANGELOG.md/ARCHITECTURE.md/ROADMAP.md — nunca inventando decisão ou histórico. Idempotente: com os 3 arquivos já existentes, atualiza o delta em vez de reescrever.
+
+## [1.7.0] — 2026-08-01
+
+### Skills
+
+- `/ba-eter` (nova) — hub orquestrador do Eter: descreve o produto, o pipeline completo (NEW → CONTACTED → IN_PROGRESS → COMPLETED), lista todas as sub-skills e quando invocar cada uma, e fornece acesso rápido ao CRM. Ponto de entrada único para qualquer trabalho no Eter.
+- `/eter-briefing` (migrada para o repo) — briefing pré-reunião: lê o CRM, gera resumo executivo com negócio, dor, qualificação e perguntas para a call, e salva automaticamente no painel admin.
+- `/eter-pipeline` (migrada para o repo) — snapshot do pipeline completo com alertas de clientes parados e próximas ações prioritárias.
+- `/eter-proposta` (migrada para o repo) — gera proposta comercial em versão WhatsApp (400 palavras) ou PDF formal.
+- `/eter-roadmap-gen` (migrada para o repo) — roadmap 6 semanas personalizado ao cliente, mais rico que o template automático do CRM.
+- `/eter-weekly` (migrada para o repo) — relatório semanal de todos os clientes ativos com progresso, alertas e agenda sugerida.
 
 ## [1.6.0] — 2026-08-02
 
@@ -16,6 +27,7 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 - `/ba-integracoes` (nova) — conecta um cliente Eter a sistemas que já usa: Sheets/ClickUp/Notion/Trello (MCP), Stripe/Shopify/Calendly/RD Station/Pipedrive (cliente Python), webhook genérico, orquestrador de fluxos YAML e deploy Docker/Coolify. Adaptada de um pacote de terceiros (asv-digital/pack-integracoes) — removida a marca original. Módulo de notificação WhatsApp/Zappfy removido (Bora Automatizar já tem sistema próprio); notificador ficou só Slack/Discord/Telegram.
 - `/ba-controle-operacional` (nova) — substitui a planilha de um cliente Eter por controle via CSV + linguagem natural: financeiro, estoque, vendas, clientes, fornecedores, tarefas, funcionários, projetos, relatório mensal e dashboard rápido. Adaptada de um pacote de terceiros (asv-digital/skills-fim-das-planilhas) — removida a marca original.
+- `/eter-scope` (nova) — dado um cliente do Eter CRM, lê respostas do formulário e anotações da call e produz o desenho técnico da solução: mapeamento do processo atual vs. automatizado, módulos a construir, stack recomendada (n8n/Make, Evolution API/Z-API, GPT-4o, Typebot, etc.), integrações necessárias, dependências do cliente, fora do escopo, estimativa de complexidade (pequena/média/grande) e prazo. Output alimenta diretamente o `/eter-proposta`.
 
 ## [1.5.0] — 2026-08-02
 
