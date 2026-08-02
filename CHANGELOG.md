@@ -4,6 +4,12 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ---
 
+## [1.3.0] — 2026-08-01
+
+### Skills
+
+- `/dh-proposta-comercial` — Gera proposta comercial em HTML single-file no padrão visual Bora Automatizar (mesmo CSS do modo Landing Page de `dh-designer-system-ba`), com template + checklist de coleta de informação (escopo, cronograma, investimento parcelado, contato)
+
 ## [1.2.0] — 2026-07-30
 
 ### Skills
