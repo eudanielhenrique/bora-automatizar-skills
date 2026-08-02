@@ -9,12 +9,25 @@ echo "  bora-automatizar-skills"
 echo "  ------------------------"
 echo ""
 
-for skill in ba-firestore-backup ba-firestore-restore ba-designer-system ba-proposta-comercial ba-oferta-produtizada ba-monitoramento-equipe ba-integracoes ba-controle-operacional ba-eter eter-briefing eter-pipeline eter-scope eter-proposta eter-roadmap-gen eter-weekly; do
+# Utilitários Bora Automatizar
+for skill in ba-firestore-backup ba-firestore-restore ba-designer-system ba-proposta-comercial ba-oferta-produtizada ba-monitoramento-equipe ba-integracoes ba-controle-operacional; do
     target="$SKILLS_DIR/$skill"
-    if [ -L "$target" ] || [ -e "$target" ]; then
-        rm -rf "$target"
-    fi
+    if [ -L "$target" ] || [ -e "$target" ]; then rm -rf "$target"; fi
     ln -s "$SCRIPT_DIR/$skill" "$target"
+    echo "  /$skill instalado"
+done
+
+# ba-eter hub
+target="$SKILLS_DIR/ba-eter"
+if [ -L "$target" ] || [ -e "$target" ]; then rm -rf "$target"; fi
+ln -s "$SCRIPT_DIR/ba-eter" "$target"
+echo "  /ba-eter instalado"
+
+# Sub-skills Eter (dentro de ba-eter/)
+for skill in eter-briefing eter-pipeline eter-scope eter-proposta eter-roadmap-gen eter-weekly; do
+    target="$SKILLS_DIR/$skill"
+    if [ -L "$target" ] || [ -e "$target" ]; then rm -rf "$target"; fi
+    ln -s "$SCRIPT_DIR/ba-eter/$skill" "$target"
     echo "  /$skill instalado"
 done
 
@@ -31,7 +44,7 @@ echo "    /ba-monitoramento-equipe Boletim diário/semanal da equipe de WhatsApp
 echo "    /ba-integracoes          Conectar sistemas existentes do cliente (Sheets, CRM, Stripe, etc.)"
 echo "    /ba-controle-operacional Controle operacional via CSV pro cliente sem sistema"
 echo ""
-echo "  — Eter CRM —"
+echo "  — Eter CRM (ba-eter/) —"
 echo "    /ba-eter                 Hub: fluxo completo + quando usar cada skill do Eter"
 echo "    /eter-briefing           Briefing pré-reunião + qualificação salva no painel"
 echo "    /eter-pipeline           Snapshot do pipeline com alertas e próximas ações"
