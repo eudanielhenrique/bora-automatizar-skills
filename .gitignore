@@ -1,3 +1,6 @@
 serviceAccountKey.json
 *.json.bak
 backup-*.json
+__pycache__/
+*.pyc
+.env

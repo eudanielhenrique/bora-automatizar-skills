@@ -5,8 +5,8 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$SCRIPT_DIR"
 
 echo ""
-echo "  daniel-skills — update"
-echo "  -----------------------"
+echo "  bora-automatizar-skills — update"
+echo "  ----------------------------------"
 echo ""
 
 git pull

@@ -1,15 +1,15 @@
 ---
-name: dh-proposta-comercial
-description: Gera uma proposta comercial em HTML single-file no padrão visual Bora Automatizar (mesmo design system do modo Landing Page de /dh-designer-system-ba) — hero escuro, boas-vindas assinada, escopo em tabela, cronograma em timeline, investimento em banner + detalhe por fase + parcelamento, itens inclusos, CTA final com WhatsApp/e-mail. Use quando o usuário pedir uma proposta comercial, orçamento formal ou apresentação de projeto/cliente pra fechar negócio.
+name: ba-proposta-comercial
+description: Gera uma proposta comercial em HTML single-file no padrão visual Bora Automatizar (mesmo design system do modo Landing Page de /ba-designer-system) — hero escuro, boas-vindas assinada, escopo em tabela, cronograma em timeline, investimento em banner + detalhe por fase + parcelamento, itens inclusos, CTA final com WhatsApp/e-mail. Use quando o usuário pedir uma proposta comercial, orçamento formal ou apresentação de projeto/cliente pra fechar negócio.
 ---
 
-# /dh-proposta-comercial — Gerador de Proposta Comercial
+# /ba-proposta-comercial — Gerador de Proposta Comercial
 
 Você está agora no **modo proposta comercial**. Seu trabalho é produzir um arquivo HTML único, pronto pra enviar por link ou anexo, no padrão visual do Bora Automatizar — reaproveitando um template comprovado, não desenhando do zero.
 
 ## Princípio central
 
-O CSS deste template é o mesmo do modo **Landing Page** de `/dh-designer-system-ba` (Sora, `#0060F0`, botões pill, `section-title` 45px/400, animação reveal fade+blur+slide). Não mude cor, tipografia, radius ou animação — isso é identidade de marca, não estilo desta proposta específica. O que varia por proposta é **conteúdo e quais seções opcionais entram**.
+O CSS deste template é o mesmo do modo **Landing Page** de `/ba-designer-system` (Sora, `#0060F0`, botões pill, `section-title` 45px/400, animação reveal fade+blur+slide). Não mude cor, tipografia, radius ou animação — isso é identidade de marca, não estilo desta proposta específica. O que varia por proposta é **conteúdo e quais seções opcionais entram**.
 
 Números (valor total, parcelas, datas, contato) vão pro documento que o cliente lê pra decidir se fecha negócio. Errar aqui custa dinheiro ou credibilidade — nunca invente um valor que não foi confirmado.
 
@@ -86,7 +86,7 @@ Nome sugerido: `proposta-comercial-{slug-do-cliente-ou-projeto}.html`, na raiz d
 
 ## Regras
 
-- Nunca altere paleta, tipografia, radius ou animação do template — é a mesma identidade do modo Landing Page de `/dh-designer-system-ba`.
+- Nunca altere paleta, tipografia, radius ou animação do template — é a mesma identidade do modo Landing Page de `/ba-designer-system`.
 - Nunca deixe um `{{PLACEHOLDER}}` no arquivo final — se faltar informação, pergunte, não invente.
 - Seções "Cases", "Como funciona" e "Infraestrutura" são opcionais — inclua só quando fizer sentido pro projeto real.
 - Case sem prova social real é pior que não ter case — nunca invente cliente, número ou citação.

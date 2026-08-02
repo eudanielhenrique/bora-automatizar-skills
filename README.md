@@ -1,4 +1,4 @@
-# daniel-skills
+# bora-automatizar-skills
 
 **O padrão não fica na sua cabeça. Fica no código.**
 
@@ -12,7 +12,7 @@ Você abre o Claude Code. O agente não sabe qual é a sua barra. Não sabe que 
 
 Então você repete. Toda sessão, todo projeto.
 
-daniel-skills resolve isso. Você codifica o padrão uma vez. Depois ele está sempre lá.
+bora-automatizar-skills resolve isso. Você codifica o padrão uma vez. Depois ele está sempre lá.
 
 ---
 
@@ -20,11 +20,12 @@ daniel-skills resolve isso. Você codifica o padrão uma vez. Depois ele está s
 
 | Skill | O que faz |
 |---|---|
-| `/dh-firestore-backup` | Exporta collections do Firestore para JSON — todas ou seleção específica, com subcollections e logging |
-| `/dh-firestore-restore` | Restaura dados no Firestore com conversão de tipos, clearCollection e confirmação explícita de destino |
-| `/dh-designer-system-ba` | Aplica a identidade Bora Automatizar em três modos — Landing Page (extraído do site WordPress), Sistema/App (base para sidebar/tabelas/dashboards) e Oferta/Produto (extraído do Projeto Éter, geração mais recente) |
-| `/dh-proposta-comercial` | Gera proposta comercial em HTML único no padrão visual Bora Automatizar — hero, cases, escopo, cronograma, investimento parcelado, CTA com WhatsApp/e-mail |
-| `/dh-oferta-produtizada` | Gera landing page de oferta produtizada em HTML único — escassez, exemplos, cases, processo, prova social do founder, FAQ |
+| `/ba-firestore-backup` | Exporta collections do Firestore para JSON — todas ou seleção específica, com subcollections e logging |
+| `/ba-firestore-restore` | Restaura dados no Firestore com conversão de tipos, clearCollection e confirmação explícita de destino |
+| `/ba-designer-system` | Aplica a identidade Bora Automatizar em três modos — Landing Page (extraído do site WordPress), Sistema/App (base para sidebar/tabelas/dashboards) e Oferta/Produto (extraído do Projeto Éter, geração mais recente) |
+| `/ba-proposta-comercial` | Gera proposta comercial em HTML único no padrão visual Bora Automatizar — hero, cases, escopo, cronograma, investimento parcelado, CTA com WhatsApp/e-mail |
+| `/ba-oferta-produtizada` | Gera landing page de oferta produtizada em HTML único — escassez, exemplos, cases, processo, prova social do founder, FAQ |
+| `/ba-monitoramento-equipe` | Boletim diário/semanal da equipe de WhatsApp — TPR, heatmap de demanda, mensagens críticas, distribuição de carga |
 
 ---
 
@@ -35,7 +36,7 @@ Cada skill é um arquivo `SKILL.md` com instruções que o Claude Code carrega q
 Exemplo:
 
 ```
-Você:  /dh-firestore-backup
+Você:  /ba-firestore-backup
 
 Claude: [Verifica e instala o pacote automaticamente se necessário.
         Confirma serviceAccountKey.json. Pergunta quais collections.
@@ -53,13 +54,13 @@ Arquivo:     backup-2026-07-13T23-24-31-485Z.json (2.3 MB)
 ### Instalação
 
 ```bash
-git clone https://github.com/eudanielhenrique/daniel-skills.git ~/.claude/skills/daniel-skills && cd ~/.claude/skills/daniel-skills && chmod +x setup && ./setup
+git clone https://github.com/eudanielhenrique/bora-automatizar-skills.git ~/.claude/skills/bora-automatizar-skills && cd ~/.claude/skills/bora-automatizar-skills && chmod +x setup && ./setup
 ```
 
 ### Atualização
 
 ```bash
-~/.claude/skills/daniel-skills/update
+~/.claude/skills/bora-automatizar-skills/update
 ```
 
 Puxa o que tiver de novo e reinstala os symlinks.
@@ -67,7 +68,7 @@ Puxa o que tiver de novo e reinstala os symlinks.
 ### Desinstalação
 
 ```bash
-for s in dh-firestore-backup dh-firestore-restore dh-designer-system-ba dh-proposta-comercial dh-oferta-produtizada; do rm -rf ~/.claude/skills/$s; done && rm -rf ~/.claude/skills/daniel-skills
+for s in ba-firestore-backup ba-firestore-restore ba-designer-system ba-proposta-comercial ba-oferta-produtizada ba-monitoramento-equipe; do rm -rf ~/.claude/skills/$s; done && rm -rf ~/.claude/skills/bora-automatizar-skills
 ```
 
 ---

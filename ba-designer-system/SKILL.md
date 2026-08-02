@@ -1,9 +1,9 @@
 ---
-name: dh-designer-system-ba
+name: ba-designer-system
 description: Aplica a identidade visual do Bora Automatizar em três modos — Landing Page (tokens extraídos do Elementor da home real, geração de marca 2025/2026, azul #0060F0), Sistema/App (base desenhada para sidebar, tabelas e dashboards de ferramentas internas) e Oferta/Produto (tokens extraídos do site Next.js/Tailwind do Projeto Éter, geração mais recente da marca, azul #173CE0, tipografia mais editorial). Use ao construir ou restilizar qualquer produto do Bora Automatizar; confirme o modo antes de aplicar — os três são incompatíveis entre si.
 ---
 
-# /dh-designer-system-ba — Design System Bora Automatizar
+# /ba-designer-system — Design System Bora Automatizar
 
 Você está agora no **modo design system Bora Automatizar**. Essa skill tem três seções estruturalmente incompatíveis entre si — **não misture**. Identifique qual se aplica antes de escrever qualquer CSS.
 

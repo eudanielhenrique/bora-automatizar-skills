@@ -5,11 +5,11 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 SKILLS_DIR="$(dirname "$SCRIPT_DIR")"
 
 echo ""
-echo "  daniel-skills"
-echo "  -------------"
+echo "  bora-automatizar-skills"
+echo "  ------------------------"
 echo ""
 
-for skill in dh-firestore-backup dh-firestore-restore dh-designer-system-ba dh-proposta-comercial dh-oferta-produtizada; do
+for skill in ba-firestore-backup ba-firestore-restore ba-designer-system ba-proposta-comercial ba-oferta-produtizada ba-monitoramento-equipe; do
     target="$SKILLS_DIR/$skill"
     if [ -L "$target" ] || [ -e "$target" ]; then
         rm -rf "$target"
@@ -21,11 +21,12 @@ done
 echo ""
 echo "  Skills instaladas:"
 echo ""
-echo "    /dh-firestore-backup       Exportar collections do Firestore para JSON"
-echo "    /dh-firestore-restore      Restaurar dados do Firestore a partir de JSON"
-echo "    /dh-designer-system-ba     Aplicar o design system do Bora Automatizar"
-echo "    /dh-proposta-comercial     Gerar proposta comercial em HTML no padrão Bora Automatizar"
-echo "    /dh-oferta-produtizada     Gerar landing de oferta produtizada (Projeto Éter)"
+echo "    /ba-firestore-backup     Exportar collections do Firestore para JSON"
+echo "    /ba-firestore-restore    Restaurar dados do Firestore a partir de JSON"
+echo "    /ba-designer-system      Aplicar o design system do Bora Automatizar"
+echo "    /ba-proposta-comercial   Gerar proposta comercial em HTML no padrão Bora Automatizar"
+echo "    /ba-oferta-produtizada   Gerar landing de oferta produtizada (Projeto Éter)"
+echo "    /ba-monitoramento-equipe Boletim diário/semanal da equipe de WhatsApp"
 echo ""
 echo "  Pré-requisito:"
 echo "    - serviceAccountKey.json na raiz do projeto"

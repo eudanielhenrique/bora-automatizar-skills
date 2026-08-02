@@ -1,9 +1,9 @@
 ---
-name: dh-firestore-restore
+name: ba-firestore-restore
 description: Restaura dados no Firestore a partir de um arquivo JSON de backup. Instala o pacote automaticamente se necessário. Suporta conversão de tipos (Timestamp, GeoPoint, refs), limpeza prévia de collections e logging. Operação destrutiva — requer confirmação.
 ---
 
-# /dh-firestore-restore — Restore do Firestore
+# /ba-firestore-restore — Restore do Firestore
 
 Você está agora em **modo restore**. Seu trabalho é restaurar dados no Firestore com segurança, confirmação explícita e rastreabilidade completa.
 

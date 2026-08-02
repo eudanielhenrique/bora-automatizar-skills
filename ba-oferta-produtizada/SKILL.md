@@ -1,22 +1,22 @@
 ---
-name: dh-oferta-produtizada
-description: Gera uma landing page de oferta produtizada em HTML single-file no padrão visual Bora Automatizar mais recente (modo Oferta/Produto de /dh-designer-system-ba — azul #173CE0, fundo quase-preto, tipografia editorial peso 400) — hero com escassez, exemplos de serviço, cases reais, processo em etapas, prova social do founder, condições da oferta, FAQ. Use quando o usuário pedir uma landing page de oferta/produto com vagas limitadas, diferente de uma proposta pra um cliente específico (isso é /dh-proposta-comercial).
+name: ba-oferta-produtizada
+description: Gera uma landing page de oferta produtizada em HTML single-file no padrão visual Bora Automatizar mais recente (modo Oferta/Produto de /ba-designer-system — azul #173CE0, fundo quase-preto, tipografia editorial peso 400) — hero com escassez, exemplos de serviço, cases reais, processo em etapas, prova social do founder, condições da oferta, FAQ. Use quando o usuário pedir uma landing page de oferta/produto com vagas limitadas, diferente de uma proposta pra um cliente específico (isso é /ba-proposta-comercial).
 ---
 
-# /dh-oferta-produtizada — Gerador de Oferta Produtizada
+# /ba-oferta-produtizada — Gerador de Oferta Produtizada
 
 Você está agora no **modo oferta produtizada**. Seu trabalho é produzir um arquivo HTML único, pronto pra publicar, no padrão visual mais recente do Bora Automatizar (mesma identidade do Projeto Éter) — reaproveitando um template real, não desenhando do zero.
 
-## Quando usar esta skill vs `/dh-proposta-comercial`
+## Quando usar esta skill vs `/ba-proposta-comercial`
 
 | Se é... | Use |
 |---|---|
 | Landing de produto/oferta nova, com vagas limitadas, vendendo pra qualquer visitante | **Esta skill** |
-| Proposta fechada pra 1 cliente específico já engajado, com escopo e valor definidos | `/dh-proposta-comercial` |
+| Proposta fechada pra 1 cliente específico já engajado, com escopo e valor definidos | `/ba-proposta-comercial` |
 
 ## Princípio central
 
-O CSS/tokens deste template são o modo **Oferta/Produto** de `/dh-designer-system-ba` (azul `#173CE0`, fundo `#060608`, Inter peso 400 mesmo em headings grandes, tracking aberto em labels). Não mude cor, peso tipográfico ou radius — isso é identidade de marca desta geração específica. Não confunda com o azul `#0060F0`/Sora bold do modo Landing Page (site institucional antigo) — são gerações visuais diferentes, não misture.
+O CSS/tokens deste template são o modo **Oferta/Produto** de `/ba-designer-system` (azul `#173CE0`, fundo `#060608`, Inter peso 400 mesmo em headings grandes, tracking aberto em labels). Não mude cor, peso tipográfico ou radius — isso é identidade de marca desta geração específica. Não confunda com o azul `#0060F0`/Sora bold do modo Landing Page (site institucional antigo) — são gerações visuais diferentes, não misture.
 
 ## Lição de um bug real
 
@@ -41,7 +41,7 @@ Se o usuário já deu tudo isso, não pergunte de novo — extraia. Se faltar al
 
 **Exemplos de serviço** — 3–4 cards curtos ilustrando "o que dá pra construir" (não são cases reais, são possibilidades)
 
-**Cases reais (opcional)** — mesma regra da `/dh-proposta-comercial`: setor, cliente, problema, solução em 1 frase, citação em 1ª pessoa. Nunca invente. Sem case real aplicável, remova a seção.
+**Cases reais (opcional)** — mesma regra da `/ba-proposta-comercial`: setor, cliente, problema, solução em 1 frase, citação em 1ª pessoa. Nunca invente. Sem case real aplicável, remova a seção.
 
 **Como funciona** — processo em 4–5 passos numerados (nome do passo + descrição curta)
 

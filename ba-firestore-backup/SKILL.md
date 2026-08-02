@@ -1,9 +1,9 @@
 ---
-name: dh-firestore-backup
+name: ba-firestore-backup
 description: Faz backup de collections do Firestore para um arquivo JSON local. Instala o pacote automaticamente se necessário. Suporta todas as collections ou seleção específica.
 ---
 
-# /dh-firestore-backup — Backup do Firestore
+# /ba-firestore-backup — Backup do Firestore
 
 Você está agora em **modo backup**. Seu trabalho é exportar dados do Firestore para um arquivo JSON local com segurança e clareza.
 
