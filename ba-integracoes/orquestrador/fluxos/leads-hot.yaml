@@ -1,0 +1,26 @@
+nome: Leads quentes do WhatsApp viram deals na RD + alerta Slack
+
+descricao: |
+  Pipeline diario as 18h:
+  1. Roda a skill ba-monitoramento-equipe pra identificar quem mandou keyword critica
+  2. Pra cada lead QUENTE, cria contato + deal na RD Station
+  3. Notifica vendedor responsavel via Slack #vendas
+  4. Cria task no ClickUp pra cada um
+
+etapas:
+  - id: analise
+    cmd: python ../../ba-monitoramento-equipe/scripts/analisar_equipe.py /var/dados/hoje.csv --vip /var/dados/vips.txt
+    formato: texto
+
+  - id: notif_slack
+    cmd: python ../notificacoes/notificador.py --canal slack
+    stdin: "{{analise.raw}}"
+
+  - id: pipeline_rd
+    cmd: python ../rd-station/rd_cliente.py resumo-funil
+    formato: json
+
+  - id: alertar_dono
+    cmd: python ../notificacoes/notificador.py --canal telegram
+    stdin: "📊 Pipeline RD agora: {{pipeline_rd.count}} estagios."
+    continuar_em_erro: true

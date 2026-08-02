@@ -1,0 +1,14 @@
+# Cron rodando dentro do container 'scheduler' (TZ=America/Sao_Paulo)
+# Os fluxos do orquestrador estao em /app/pack/orquestrador/fluxos/
+
+# 8h - resumo financeiro do dia anterior
+0 8 * * 1-5  cd /app/pack/orquestrador && python orquestrador.py fluxos/financeiro-semanal.yaml >> /var/log/integracoes/financeiro.log 2>&1
+
+# 18h - pedidos do dia
+0 18 * * 1-6 cd /app/pack/orquestrador && python orquestrador.py fluxos/pedidos-diarios.yaml >> /var/log/integracoes/pedidos.log 2>&1
+
+# 21h - briefing das reunioes de amanha
+0 21 * * 0-4 cd /app/pack/orquestrador && python orquestrador.py fluxos/briefing-amanha.yaml >> /var/log/integracoes/briefing.log 2>&1
+
+# Sexta 18h - leads quentes da semana
+0 18 * * 5   cd /app/pack/orquestrador && python orquestrador.py fluxos/leads-hot.yaml >> /var/log/integracoes/leads.log 2>&1

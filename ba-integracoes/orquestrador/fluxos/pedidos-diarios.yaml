@@ -1,0 +1,21 @@
+nome: Pedidos diarios Shopify
+
+descricao: Pedidos do dia, alerta no Slack, task se houver pedido grande
+
+etapas:
+  - id: pedidos
+    cmd: python ../shopify/shopify_cliente.py pedidos-hoje
+    formato: json
+
+  - id: notif
+    cmd: python ../notificacoes/notificador.py --canal slack
+    stdin: |
+      🛍️ Pedidos hoje
+      Total: {{pedidos.count}}
+      Faturamento: R$ {{pedidos.total}}
+      Maior pedido: R$ {{pedidos.maior_valor}}
+
+  - id: alerta_grande
+    cmd: python ../notificacoes/notificador.py --canal telegram
+    stdin: "🚨 Pedido GRANDE: R$ {{pedidos.maior_valor}} (#{{pedidos.maior_id}})"
+    condicao: "{{pedidos.maior_valor}} > 5000"

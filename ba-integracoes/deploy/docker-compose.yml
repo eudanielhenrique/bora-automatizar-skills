@@ -1,0 +1,42 @@
+services:
+  webhook:
+    build: .
+    container_name: integracoes-webhook
+    env_file: .env
+    expose:
+      - "8080"
+    ports:
+      - "127.0.0.1:8080:8080"   # so localhost — reverse proxy faz publico
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-fs", "http://localhost:8080/healthz"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  scheduler:
+    build: .
+    container_name: integracoes-scheduler
+    env_file: .env
+    command: ["sh", "-c", "echo 'starting cron'; crond -f -L /dev/stdout"]
+    volumes:
+      - ./crontab-server:/etc/crontabs/root:ro
+    restart: unless-stopped
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: integracoes-caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - webhook
+
+volumes:
+  caddy_data:
+  caddy_config:

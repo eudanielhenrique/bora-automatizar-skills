@@ -1,0 +1,20 @@
+nome: Briefing das reunioes de amanha
+
+descricao: |
+  Toda noite 21h: olha o Calendly de amanha, gera briefing
+  cruzando dados de Stripe (cliente?) + Notion (notas).
+
+etapas:
+  - id: agenda
+    cmd: python ../calendly/calendly_cliente.py amanha
+    formato: json
+
+  - id: briefing
+    cmd: |
+      claude -p "Lê esse JSON da agenda: {{agenda.json}}. Pra cada reunião, monta briefing com 3 perguntas e 1 ângulo de abertura. Devolve em texto direto."
+    formato: texto
+    timeout: 180
+
+  - id: enviar
+    cmd: python ../notificacoes/notificador.py --canal telegram --prefixo "🌅 Briefing amanha\n\n"
+    stdin: "{{briefing.raw}}"

@@ -4,6 +4,13 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ---
 
+## [1.6.0] — 2026-08-02
+
+### Skills
+
+- `/ba-integracoes` (nova) — conecta um cliente Eter a sistemas que já usa: Sheets/ClickUp/Notion/Trello (MCP), Stripe/Shopify/Calendly/RD Station/Pipedrive (cliente Python), webhook genérico, orquestrador de fluxos YAML e deploy Docker/Coolify. Adaptada de um pacote de terceiros (asv-digital/pack-integracoes) — removida a marca original. Módulo de notificação WhatsApp/Zappfy removido (Bora Automatizar já tem sistema próprio); notificador ficou só Slack/Discord/Telegram.
+- `/ba-controle-operacional` (nova) — substitui a planilha de um cliente Eter por controle via CSV + linguagem natural: financeiro, estoque, vendas, clientes, fornecedores, tarefas, funcionários, projetos, relatório mensal e dashboard rápido. Adaptada de um pacote de terceiros (asv-digital/skills-fim-das-planilhas) — removida a marca original.
+
 ## [1.5.0] — 2026-08-02
 
 ### Breaking

@@ -1,0 +1,16 @@
+# Coloque seu dominio aqui. Caddy emite HTTPS automatico (Lets Encrypt).
+webhook.seudominio.com.br {
+    reverse_proxy webhook:8080
+
+    log {
+        output stdout
+        format console
+    }
+
+    encode gzip
+
+    @healthz {
+        path /healthz
+    }
+    respond @healthz "ok" 200
+}

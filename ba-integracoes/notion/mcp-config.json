@@ -1,0 +1,12 @@
+{
+  "_comentario": "MCP Notion. Substitua [SUA_API_KEY] pela Internal Integration Secret gerada em notion.so/my-integrations. Cole o bloco mcpServers em ~/.claude.json ou no .mcp.json do projeto.",
+  "mcpServers": {
+    "notion": {
+      "command": "npx",
+      "args": ["-y", "@notionhq/notion-mcp-server"],
+      "env": {
+        "NOTION_TOKEN": "[SUA_API_KEY]"
+      }
+    }
+  }
+}

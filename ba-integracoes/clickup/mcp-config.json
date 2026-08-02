@@ -1,0 +1,12 @@
+{
+  "_comentario": "MCP ClickUp. Substitua [SEU_TOKEN_AQUI] pelo seu Personal API Token do ClickUp (Settings -> Apps -> API Token). Cole o bloco mcpServers em ~/.claude.json ou no .mcp.json do projeto.",
+  "mcpServers": {
+    "clickup": {
+      "command": "npx",
+      "args": ["-y", "@taazkareem/clickup-mcp-server"],
+      "env": {
+        "CLICKUP_API_TOKEN": "[SEU_TOKEN_AQUI]"
+      }
+    }
+  }
+}

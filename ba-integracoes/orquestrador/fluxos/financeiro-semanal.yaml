@@ -1,0 +1,40 @@
+nome: Fechamento financeiro semanal
+
+descricao: |
+  Toda sexta 18h:
+  1. Resumo do Stripe da semana
+  2. Resumo do Shopify (se ecom)
+  3. Pipeline RD
+  4. Consolida em mensagem unica
+  5. Manda no Slack #financeiro + Telegram dos socios
+
+etapas:
+  - id: stripe
+    cmd: python ../stripe/stripe_cliente.py resumo-mes 2026 5
+    formato: json
+    retries: 2
+
+  - id: shopify
+    cmd: python ../shopify/shopify_cliente.py resumo-dia
+    formato: json
+    continuar_em_erro: true
+    retries: 1
+
+  - id: rd
+    cmd: python ../rd-station/rd_cliente.py resumo-funil
+    formato: json
+    continuar_em_erro: true
+
+  - id: notif_sócios
+    cmd: python ../notificacoes/notificador.py --canal "slack,telegram" --prefixo "📊 Semana"
+    stdin: |
+      💰 STRIPE
+      Receita: R$ {{stripe.json.total_recebido_brl}}
+      MRR: R$ {{stripe.json.mrr_atual_brl}}
+      Churn: {{stripe.json.churn_mes_pct}}%
+
+      🛍️ SHOPIFY hoje
+      Pedidos: {{shopify.json.pedidos}} | Faturamento: R$ {{shopify.json.faturamento}}
+
+      🎯 RD
+      Estagios: {{rd.count}}

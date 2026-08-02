@@ -1,0 +1,13 @@
+{
+  "_comentario": "MCP Trello. Substitua [SUA_API_KEY] e [SEU_TOKEN] pelos valores em trello.com/app-key. Cole o bloco mcpServers em ~/.claude.json ou no .mcp.json do projeto.",
+  "mcpServers": {
+    "trello": {
+      "command": "npx",
+      "args": ["-y", "@mcp-mirror/delorenj_mcp-server-trello"],
+      "env": {
+        "TRELLO_API_KEY": "[SUA_API_KEY]",
+        "TRELLO_TOKEN": "[SEU_TOKEN]"
+      }
+    }
+  }
+}

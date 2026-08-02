@@ -1,0 +1,12 @@
+{
+  "_comentario": "MCP Google Sheets. Substitua o caminho pela localizacao do JSON da sua service account. Cole o bloco mcpServers em ~/.claude.json ou em .mcp.json do projeto.",
+  "mcpServers": {
+    "google-sheets": {
+      "command": "npx",
+      "args": ["-y", "@googleapis/sheets-mcp"],
+      "env": {
+        "GOOGLE_SERVICE_ACCOUNT_KEY_PATH": "/Users/SEU_USUARIO/.credentials/google-sheets.json"
+      }
+    }
+  }
+}
