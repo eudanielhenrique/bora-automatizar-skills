@@ -1,4 +1,4 @@
-# bora-automatizar-skills (v1.6)
+# bora-automatizar-skills (v1.7)
 
 Skills operacionais para o Claude Code: backup/restore do Firestore, design system, geração de proposta comercial / oferta produtizada, monitoramento de equipe e entrega de projetos Eter (integrações + controle operacional) do Bora Automatizar.
 
@@ -12,5 +12,6 @@ Skills operacionais para o Claude Code: backup/restore do Firestore, design syst
 - `/ba-monitoramento-equipe` — Boletim diário/semanal de equipe de WhatsApp (TPR, heatmap, palavras críticas, distribuição de carga)
 - `/ba-integracoes` — Conecta o cliente Eter a sistemas que ele já usa (Sheets, ClickUp, Notion, Trello, Stripe, Shopify, Calendly, RD Station, Pipedrive, webhook genérico) + orquestrador de fluxos + deploy
 - `/ba-controle-operacional` — Substitui a planilha do cliente Eter por controle via CSV + linguagem natural (financeiro, estoque, vendas, clientes, fornecedores, tarefas, funcionários, projetos, relatório mensal, dashboard)
+- `/ba-init` — Início de projeto (escolhe stack, estrutura, segurança day-1) ou documentação contínua (CHANGELOG.md/ARCHITECTURE.md/ROADMAP.md), dependendo se o projeto já existe ou não
 
 Cada skill tem seu próprio SKILL.md na subpasta.

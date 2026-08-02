@@ -9,7 +9,7 @@ echo "  bora-automatizar-skills"
 echo "  ------------------------"
 echo ""
 
-for skill in ba-firestore-backup ba-firestore-restore ba-designer-system ba-proposta-comercial ba-oferta-produtizada ba-monitoramento-equipe ba-integracoes ba-controle-operacional; do
+for skill in ba-firestore-backup ba-firestore-restore ba-designer-system ba-proposta-comercial ba-oferta-produtizada ba-monitoramento-equipe ba-integracoes ba-controle-operacional ba-init; do
     target="$SKILLS_DIR/$skill"
     if [ -L "$target" ] || [ -e "$target" ]; then
         rm -rf "$target"
@@ -29,6 +29,7 @@ echo "    /ba-oferta-produtizada   Gerar landing de oferta produtizada (Projeto 
 echo "    /ba-monitoramento-equipe Boletim diário/semanal da equipe de WhatsApp"
 echo "    /ba-integracoes          Conectar sistemas existentes do cliente (Sheets, CRM, Stripe, etc.)"
 echo "    /ba-controle-operacional Controle operacional via CSV pro cliente sem sistema"
+echo "    /ba-init                 Início de projeto novo ou atualização de CHANGELOG/ARCHITECTURE/ROADMAP"
 echo ""
 echo "  Pré-requisito:"
 echo "    - serviceAccountKey.json na raiz do projeto"

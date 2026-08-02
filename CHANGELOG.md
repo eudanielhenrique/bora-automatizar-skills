@@ -4,6 +4,12 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ---
 
+## [1.7.0] — 2026-08-02
+
+### Skills
+
+- `/ba-init` (nova) — duas cabeças dependendo do estado do projeto. Em projeto novo: escolhe stack com justificativa, monta estrutura, qualidade e segurança day-1 (Docker quando aplicável), ancorada nos padrões Bora Automatizar (Next.js/Tailwind, Firestore, `/ba-integracoes`, deploy Docker/Coolify). Em projeto em andamento: analisa git log, estrutura de pastas, manifests e TODOs reais pra atualizar CHANGELOG.md/ARCHITECTURE.md/ROADMAP.md — nunca inventando decisão ou histórico. Idempotente: com os 3 arquivos já existentes, atualiza o delta em vez de reescrever.
+
 ## [1.6.0] — 2026-08-02
 
 ### Skills
