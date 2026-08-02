@@ -1,38 +1,31 @@
 ---
 name: dh-designer-system-ba
-description: Aplica a identidade visual do Bora Automatizar em dois modos — Landing Page (tokens extraídos do Elementor real, para marketing/institucional) e Sistema/App (base desenhada para sidebar, tabelas e dashboards, para ferramentas internas densas em dados). Use ao construir ou restilizar qualquer produto do Bora Automatizar; confirme o modo antes de aplicar.
+description: Aplica a identidade visual do Bora Automatizar em três modos — Landing Page (tokens extraídos do Elementor da home real, geração de marca 2025/2026, azul #0060F0), Sistema/App (base desenhada para sidebar, tabelas e dashboards de ferramentas internas) e Oferta/Produto (tokens extraídos do site Next.js/Tailwind do Projeto Éter, geração mais recente da marca, azul #173CE0, tipografia mais editorial). Use ao construir ou restilizar qualquer produto do Bora Automatizar; confirme o modo antes de aplicar — os três são incompatíveis entre si.
 ---
 
 # /dh-designer-system-ba — Design System Bora Automatizar
 
-Você está agora no **modo design system Bora Automatizar**. Essa skill tem duas seções estruturalmente incompatíveis entre si — **não misture**. Identifique qual se aplica antes de escrever qualquer CSS.
+Você está agora no **modo design system Bora Automatizar**. Essa skill tem três seções estruturalmente incompatíveis entre si — **não misture**. Identifique qual se aplica antes de escrever qualquer CSS.
 
 ## Qual modo usar
 
 | Se o projeto é...                                                    | Use            |
 | --------------------------------------------------------------------- | -------------- |
-| Site institucional, landing page, página de campanha, proposta comercial | **Landing Page** |
+| Site institucional, landing page, página de campanha, proposta comercial (geração WordPress/Elementor) | **Landing Page** |
 | Ferramenta interna, painel admin, SaaS com sidebar/tabelas/dashboards, CRUD | **Sistema/App**  |
+| Oferta produtizada, landing de produto novo, projeto Next.js/Tailwind (geração mais recente da marca) | **Oferta/Produto** |
 
-Se não estiver óbvio, pergunte. Aplicar H1 de 75px ou botão pill numa tabela densa de dados é o erro que gerou essa separação — não repita.
+Se não estiver óbvio, pergunte — em especial entre Landing Page e Oferta/Produto, que são duas gerações visuais diferentes da mesma empresa e **usam azuis diferentes** (`#0060F0` vs `#173CE0`). Aplicar H1 de 75px ou botão pill numa tabela densa de dados, ou misturar os dois azuis num mesmo projeto, é o erro que gerou essa separação — não repita.
 
 ## Princípio central
 
-Os tokens da seção **Landing Page** são fonte da verdade — extraídos direto do Elementor da home real (page ID 73), não estimados. Não arredonde, não "melhore", não substitua por valor parecido.
+Os tokens de **Landing Page** e **Oferta/Produto** são fonte da verdade — extraídos direto de sites reais em produção, não estimados. Não arredonde, não "melhore", não substitua por valor parecido.
 
-Os tokens da seção **Sistema/App** são uma base desenhada, não extraída — não existe hoje um painel/admin real do Bora Automatizar pra extrair de lá. Eles reaproveitam a identidade de marca (cor primária, tipografia, acento) mas a estrutura, escala e paleta neutra foram desenhadas do zero para densidade de dados. Trate como ponto de partida sólido, não como valor imutável — ao contrário da seção Landing Page.
+Os tokens de **Sistema/App** são uma base desenhada, não extraída — não existe hoje um painel/admin real do Bora Automatizar pra extrair de lá. Eles reaproveitam a identidade de marca do modo Landing Page (cor primária, tipografia) mas a estrutura, escala e paleta neutra foram desenhadas do zero para densidade de dados. Trate como ponto de partida sólido, não como valor imutável.
 
-Se um token que você precisa não está listado em nenhuma das duas seções, sinalize que está extrapolando — não invente como se fosse extraído.
+Se um token que você precisa não está listado em nenhum dos três modos, sinalize que está extrapolando — não invente como se fosse extraído.
 
----
-
-## Identidade compartilhada (vale nos dois modos)
-
-- **Cor de marca:** `#0060F0` (azul primário) — ação principal, foco, destaque.
-- **Acento raro:** `#D9E021` (amarelo) — usar com moderação extrema, nunca como cor dominante.
-- **Tipografia:** Sora em tudo. Neue Haas Grotesk Text Pro é exclusiva de botões/CTA de marketing (ver Landing Page) — em UI de sistema, Sora cobre tudo, inclusive botões.
-
-Tudo o mais — escala tipográfica, radius, paleta neutra, estrutura — diverge por completo entre os dois modos abaixo.
+**Sobre as duas gerações de marca:** Landing Page (home WordPress/Elementor) e Oferta/Produto (Projeto Éter, Next.js/Tailwind) são identidades visuais **distintas**, não variações uma da outra — azul diferente, tipografia diferente, peso diferente. Isso não é inconsistência a corrigir: são produtos/momentos diferentes da mesma empresa. Não funda os dois nem tente "harmonizar" — pergunte qual geração o projeto atual deve seguir.
 
 ---
 
@@ -221,10 +214,108 @@ Destrutivo:
 
 ---
 
+# Modo Oferta/Produto (extraído — Projeto Éter, geração mais recente)
+
+Para ofertas produtizadas, landing pages de produto novo, qualquer projeto Next.js/Tailwind que deva seguir a direção visual mais atual da marca. Fonte: inspecionado ao vivo em `boraautomatizar.com.br/eter` (Next.js + Tailwind v4 + tokens shadcn, ago/2026) — se o site evoluir, reconfira antes de tratar como definitivo.
+
+**Diferença fundamental do modo Landing Page:** peso tipográfico sempre 400 (normal), inclusive em headings grandes — nunca 600/700. É deliberadamente mais quieto e editorial, o oposto do hero bold do modo Landing Page. E o azul de marca aqui é `#173CE0`, não `#0060F0` — não misture os dois.
+
+## Stack e fontes
+
+Projeto real usa Tailwind v4 (tokens `--radius-*`, `--text-*`, `--font-weight-*` do tema default) + fontes customizadas via `next/font`. Se o projeto de destino não usa Tailwind, traduza os valores pra CSS puro mas mantenha os números.
+
+| Papel               | Stack de fonte                                                  |
+| -------------------- | ----------------------------------------------------------------- |
+| Display / headings (declarado) | `"Baflion Sans", Inter Tight, Inter, system-ui, sans-serif`        |
+| Headings (uso real observado) | **Inter**, peso 400, `tracking-tight` (-0.025em a -0.03em)       |
+| Serif editorial (raro/decorativo) | `"De Floria", Playfair Display, Instrument Serif, Georgia, serif` |
+| Mono                  | Geist Mono                                                         |
+
+## Cores
+
+| Uso                          | Valor                          |
+| ------------------------------ | --------------------------------- |
+| Fundo base                     | `#060608` (quase-preto, não `#000`) |
+| Fundo card / painel             | `#0d0d0f` / `#0d0d11`             |
+| Azul de marca (primary)         | `#173CE0`                         |
+| Botão primário sólido           | fundo branco, texto `#173CE0` ou preto |
+| Botão primário "shiny" (hero/CTA de destaque) | gradiente animado azul→branco→azul, ver Botões |
+| Texto primário                  | branco 100%                       |
+| Texto secundário                | `white/85`, `white/78`, `white/72` |
+| Texto terciário                 | `white/58`, `white/55`, `white/50` |
+| Texto quaternário / meta         | `white/45`, `white/40`, `white/30` |
+| Borda hairline (cards)           | `white/10`                        |
+| Borda hairline (badges/botão secundário) | `white/[0.08]`             |
+| Status positivo                  | `emerald-300`/`emerald-400`, fundo a 15% opacidade |
+| Status neutro/info               | `blue-300`/`blue-400`, fundo a 15% opacidade |
+| Selection                        | fundo `#173CE0`, texto branco     |
+
+## Tipografia
+
+| Elemento          | Tamanho                        | Peso | Observação                              |
+| ------------------ | --------------------------------- | ---- | ----------------------------------------- |
+| Hero title          | `clamp(2.5rem, 5vw, 64px)`         | 400  | line-height 1.08, tracking -0.03em       |
+| Section title        | 30px → 48px (`text-3xl md:text-5xl`) | 400  | tracking tight                            |
+| Subtítulo hero        | 16–18px                            | 400  | —                                          |
+| Corpo                  | 14–15px                            | 400  | —                                          |
+| Badge / label uppercase | 12px (`text-xs`)                  | 400  | tracking **0.18em–0.24em** (bem mais aberto que o modo Landing Page) |
+
+## Botões
+
+```
+Primário sólido (uso mais comum):
+  background: #FFFFFF
+  color: #173CE0 (sobre fundo escuro) ou #000000
+  border-radius: full (pill)
+  padding: 14px 28px
+
+Primário "shiny" (CTA de maior destaque — hero, oferta):
+  background: linear-gradient(110deg, #1d4ed8 0%, #2563eb 25%, #60a5fa 42%,
+              #fff 50%, #60a5fa 58%, #2563eb 75%, #1d4ed8 100%) animado (brilho passando, 3.5s loop)
+  border: 1px solid #ffffff40
+  box-shadow: 0 0 24px #2563eb73 (hover: 0 0 35px #3b82f6bf)
+  border-radius: full (pill)
+  padding assimétrico que expande no hover, revelando um ícone (seta) do lado
+
+Secundário (ghost):
+  background: white/[0.03]
+  border: 1px solid white/[0.08]
+  color: white
+  border-radius: full (pill)
+```
+
+## Badges
+
+```
+rounded-full, bg-white/15, border border-white/25, texto branco, text-xs
+ou (mais discreto)
+rounded-full, bg-white/[0.03], border border-white/[0.08], texto white/85, text-xs
+```
+
+## Cards
+
+```
+border-radius: 12px (rounded-xl) para cards de conteúdo, 8px (rounded-lg) para mockups pequenos
+border: 1px solid white/10
+background: #0d0d0f
+padding: 16px em mockups/preview, mais generoso (24–32px) em cards de conteúdo
+```
+
+## Regras — Oferta/Produto
+
+- Peso tipográfico é sempre 400 — nunca 600/700 em heading, mesmo em títulos grandes. Contraria diretamente a regra do modo Landing Page (que usa 600 no H1).
+- Fundo é `#060608`, não `#000000` — sutil mas real, não reuse o `--black` do modo Landing Page.
+- Azul de marca aqui é `#173CE0` — nunca `#0060F0` neste modo, e vice-versa no modo Landing Page.
+- Tracking de labels uppercase é relativo (em `em`), não fixo em px como no modo Landing Page — proporcionalmente mais aberto.
+- Se o site evoluir, os tokens aqui podem ficar desatualizados — antes de um projeto grande, reconfira ao vivo em vez de confiar cegamente nesta tabela.
+
+---
+
 ## Como aplicar num projeto
 
-1. **Confirme o modo** (Landing Page vs Sistema/App) antes de escrever qualquer token — são incompatíveis entre si.
+1. **Confirme o modo** (Landing Page vs Sistema/App vs Oferta/Produto) antes de escrever qualquer token — são incompatíveis entre si, e os dois modos "de marketing" usam azuis diferentes.
 2. **Identifique a stack** (CSS puro, Tailwind, CSS-in-JS, design tokens de outro sistema) e traduza os tokens pro formato certo — variáveis CSS, `tailwind.config`, tema de componentes. Não copie tabelas markdown pro código.
 3. **Landing Page:** siga a hierarquia tipográfica e a estrutura de seções à risca — são extraídas, não interpretáveis.
 4. **Sistema/App:** use a base como ponto de partida — ajuste densidade (row height, padding) ao produto real, mas mantenha cor de marca, tipografia Sora e a ausência de pill.
-5. **Confirme que é o projeto certo** — essa identidade é do Bora Automatizar especificamente. Se o usuário pede "aquele design que a gente usa" em outro cliente/produto, confirme antes de aplicar.
+5. **Oferta/Produto:** siga o peso 400 constante e o azul `#173CE0` à risca — é a assinatura visual desta geração, junto com o fundo quase-preto.
+6. **Confirme que é o projeto certo** — essa identidade é do Bora Automatizar especificamente. Se o usuário pede "aquele design que a gente usa" em outro cliente/produto, confirme antes de aplicar. Se for pro Bora Automatizar mas não estiver claro qual geração, pergunte.

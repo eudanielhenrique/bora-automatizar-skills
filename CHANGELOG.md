@@ -4,6 +4,14 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ---
 
+## [1.4.0] — 2026-08-02
+
+### Skills
+
+- `/dh-designer-system-ba` — adicionado o modo **Oferta/Produto**: tokens extraídos ao vivo do Projeto Éter (Next.js/Tailwind v4), a geração visual mais recente da marca — azul `#173CE0`, fundo quase-preto `#060608`, tipografia Inter peso 400 constante, tracking aberto em labels. Documentado como identidade distinta do modo Landing Page (azul `#0060F0`), não uma variação — os dois não devem se misturar.
+- `/dh-proposta-comercial` — adicionada seção opcional **Cases** (setor, cliente, antes/depois, citação), inspirada no formato de prova social visto no Projeto Éter.
+- `/dh-oferta-produtizada` (nova) — gera landing page de oferta produtizada em HTML single-file no padrão Oferta/Produto — hero com escassez, exemplos de serviço, cases reais, processo em etapas, prova social do founder, condições da oferta, FAQ. Baseada no Projeto Éter (boraautomatizar.com.br/eter).
+
 ## [1.3.0] — 2026-08-01
 
 ### Skills

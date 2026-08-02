@@ -211,6 +211,41 @@
     .sig-name { font-size: 17px; font-weight: 600; color: var(--text-main); }
     .sig-role { font-size: 13px; color: var(--text-tertiary); margin-top: 5px; }
 
+    /* ── CASES (opcional) ── */
+    #cases { background: var(--gray-a); padding: 112px 0; }
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .case-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 36px 32px;
+    }
+    .case-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 16px;
+    }
+    .case-client { font-size: 18px; font-weight: 600; margin-bottom: 20px; }
+    .case-before { font-size: 13px; color: var(--text-tertiary); line-height: 1.55em; margin-bottom: 14px; }
+    .case-before::before { content: 'Antes — '; font-weight: 600; color: var(--text-secondary); }
+    .case-after { font-size: 14px; font-weight: 500; color: var(--text-main); line-height: 1.5em; margin-bottom: 18px; }
+    .case-after::before { content: 'Depois — '; font-weight: 600; color: var(--blue); }
+    .case-quote {
+      font-size: 13px;
+      font-style: italic;
+      color: var(--text-secondary);
+      line-height: 1.6em;
+      padding-top: 18px;
+      border-top: 1px solid #E5E5E7;
+    }
+
     /* ── HOW IT WORKS (opcional) ── */
     #how { background: var(--gray-a); padding: 112px 0; }
     .how-cards {
@@ -666,6 +701,30 @@
         <div class="sig-divider"></div>
         <div class="sig-name">{{ASSINANTE_NOME}}</div>
         <div class="sig-role">{{ASSINANTE_CARGO}}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CASES (OPCIONAL)
+     Use só se houver prova social real e específica pra esse cliente/nicho
+     (outro cliente parecido que você já atendeu). Nunca invente um case —
+     se não houver nenhum aplicável, remova a seção inteira.
+══════════════════════════════════════ -->
+<section id="cases">
+  <div class="container">
+    <div class="section-label">Quem já passou por isso</div>
+    <h2 class="section-title small">{{CASES_TITULO_HTML}}</h2>
+
+    <div class="case-grid">
+      <!-- REPETIR .case-card — tipicamente 2, número par pra grid de 2 colunas -->
+      <div class="case-card">
+        <div class="case-tag">{{CASE_SETOR}}</div>
+        <div class="case-client">{{CASE_CLIENTE}}</div>
+        <div class="case-before">{{CASE_PROBLEMA}}</div>
+        <div class="case-after">{{CASE_SOLUCAO}}</div>
+        <div class="case-quote">"{{CASE_CITACAO}}"</div>
       </div>
     </div>
   </div>

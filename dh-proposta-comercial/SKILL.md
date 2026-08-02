@@ -29,6 +29,8 @@ Se o usuário já deu tudo isso na mensagem, não pergunte de novo — extraia. 
 - Subtítulo de uma frase (o que será entregue, em alto nível)
 - Saudação (ex: `Boas-<br>vindas,<br>Osias.`) e 3–5 parágrafos de contexto — por que esse projeto importa, o que torna especial, o que a proposta cobre
 
+**Cases (opcional)** — só inclua se houver prova social real e específica pra esse cliente/nicho (outro cliente parecido que vocês já atenderam). Nunca invente um case. Por card: setor/tag, nome do cliente, problema ("antes"), solução em uma frase ("depois"), citação em 1ª pessoa. Tipicamente 2 cases, grid de 2 colunas.
+
 **Como funciona (opcional)** — só inclua se houver um modelo de negócio, fluxo ou mecânica nova que vale explicar antes do escopo técnico (ex: marketplace com pagamento por lead). Se é um trabalho de dev direto, pule esta seção inteira.
 
 **Escopo** — lista de entregas: nome curto, descrição de 1–2 frases, tags de tecnologia/categoria (1–3 por linha)
@@ -57,7 +59,7 @@ O arquivo `template.html` (nesta mesma pasta) é a base — HTML + CSS completos
 
 - Copie o template e substitua os placeholders pelo conteúdo real.
 - Para blocos marcados "REPETIR", duplique o bloco quantas vezes forem necessárias (uma linha de escopo por entrega, um `.tl-item` por fase, um `.ic` por fase de investimento, um `.pay-item` por parcela, um `.inc-item` por item incluso).
-- Remova por completo as seções `#how` e/ou `#infra` se não se aplicarem — não deixe seção vazia ou com placeholder sem preencher.
+- Remova por completo as seções `#cases`, `#how` e/ou `#infra` se não se aplicarem — não deixe seção vazia ou com placeholder sem preencher.
 - No último `.tl-item` do cronograma, remova a `.tl-line` (a linha vertical não deve continuar depois do último ponto).
 - Gere o link do WhatsApp e o `mailto:` com URL-encoding correto no texto da mensagem/assunto/corpo.
 - Não copie as tabelas markdown deste SKILL.md pro HTML — elas são só a checklist de coleta.
@@ -86,7 +88,8 @@ Nome sugerido: `proposta-comercial-{slug-do-cliente-ou-projeto}.html`, na raiz d
 
 - Nunca altere paleta, tipografia, radius ou animação do template — é a mesma identidade do modo Landing Page de `/dh-designer-system-ba`.
 - Nunca deixe um `{{PLACEHOLDER}}` no arquivo final — se faltar informação, pergunte, não invente.
-- Seções "Como funciona" e "Infraestrutura" são opcionais — inclua só quando fizer sentido pro projeto real.
+- Seções "Cases", "Como funciona" e "Infraestrutura" são opcionais — inclua só quando fizer sentido pro projeto real.
+- Case sem prova social real é pior que não ter case — nunca invente cliente, número ou citação.
 - Confira que soma das fases de investimento = valor total, e soma das parcelas = valor total, antes de finalizar.
 - Link do WhatsApp sempre com número em E.164 sem `+` e mensagem URL-encoded.
 - Se o usuário pedir uma proposta pra um cliente/produto fora do Bora Automatizar, confirme se a identidade visual ainda é essa antes de aplicar — a marca é específica do Bora Automatizar.

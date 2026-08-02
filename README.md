@@ -22,8 +22,9 @@ daniel-skills resolve isso. Você codifica o padrão uma vez. Depois ele está s
 |---|---|
 | `/dh-firestore-backup` | Exporta collections do Firestore para JSON — todas ou seleção específica, com subcollections e logging |
 | `/dh-firestore-restore` | Restaura dados no Firestore com conversão de tipos, clearCollection e confirmação explícita de destino |
-| `/dh-designer-system-ba` | Aplica a identidade Bora Automatizar em dois modos — Landing Page (extraído do site real) e Sistema/App (base para sidebar, tabelas e dashboards de ferramentas internas) |
-| `/dh-proposta-comercial` | Gera proposta comercial em HTML único no padrão visual Bora Automatizar — hero, escopo, cronograma, investimento parcelado, CTA com WhatsApp/e-mail |
+| `/dh-designer-system-ba` | Aplica a identidade Bora Automatizar em três modos — Landing Page (extraído do site WordPress), Sistema/App (base para sidebar/tabelas/dashboards) e Oferta/Produto (extraído do Projeto Éter, geração mais recente) |
+| `/dh-proposta-comercial` | Gera proposta comercial em HTML único no padrão visual Bora Automatizar — hero, cases, escopo, cronograma, investimento parcelado, CTA com WhatsApp/e-mail |
+| `/dh-oferta-produtizada` | Gera landing page de oferta produtizada em HTML único — escassez, exemplos, cases, processo, prova social do founder, FAQ |
 
 ---
 
@@ -66,7 +67,7 @@ Puxa o que tiver de novo e reinstala os symlinks.
 ### Desinstalação
 
 ```bash
-for s in dh-firestore-backup dh-firestore-restore dh-designer-system-ba dh-proposta-comercial; do rm -rf ~/.claude/skills/$s; done && rm -rf ~/.claude/skills/daniel-skills
+for s in dh-firestore-backup dh-firestore-restore dh-designer-system-ba dh-proposta-comercial dh-oferta-produtizada; do rm -rf ~/.claude/skills/$s; done && rm -rf ~/.claude/skills/daniel-skills
 ```
 
 ---
