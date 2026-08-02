@@ -4,6 +4,20 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ---
 
+## [1.7.0] — 2026-08-01
+
+### Skills
+
+- `/ba-eter` (nova) — hub orquestrador do Eter: descreve o produto, o pipeline completo (NEW → CONTACTED → IN_PROGRESS → COMPLETED), lista todas as sub-skills e quando invocar cada uma, e fornece acesso rápido ao CRM. Ponto de entrada único para qualquer trabalho no Eter.
+- `/eter-briefing` (migrada para o repo) — briefing pré-reunião: lê o CRM, gera resumo executivo com negócio, dor, qualificação e perguntas para a call, e salva automaticamente no painel admin.
+- `/eter-pipeline` (migrada para o repo) — snapshot do pipeline completo com alertas de clientes parados e próximas ações prioritárias.
+- `/eter-proposta` (migrada para o repo) — gera proposta comercial em versão WhatsApp (400 palavras) ou PDF formal.
+- `/eter-roadmap-gen` (migrada para o repo) — roadmap 6 semanas personalizado ao cliente, mais rico que o template automático do CRM.
+- `/eter-weekly` (migrada para o repo) — relatório semanal de todos os clientes ativos com progresso, alertas e agenda sugerida.
+
+
+---
+
 ## [1.6.0] — 2026-08-02
 
 ### Skills

@@ -1,8 +1,10 @@
-# bora-automatizar-skills (v1.6)
+# bora-automatizar-skills (v1.7)
 
-Skills operacionais para o Claude Code: backup/restore do Firestore, design system, geração de proposta comercial / oferta produtizada, monitoramento de equipe, entrega de projetos Eter (integrações + controle operacional) e escopo técnico pós-call do Bora Automatizar.
+Skills operacionais para o Claude Code: utilitários Bora Automatizar (Firestore, design system, propostas, monitoramento, integrações, controle operacional) e suite completa do Eter CRM (pipeline, briefing, escopo, proposta, roadmap, weekly).
 
 ## Skills disponíveis
+
+### Utilitários Bora Automatizar
 
 - `/ba-firestore-backup` — Exporta collections do Firestore para um arquivo JSON local
 - `/ba-firestore-restore` — Restaura dados no Firestore a partir de um arquivo JSON de backup
@@ -12,6 +14,15 @@ Skills operacionais para o Claude Code: backup/restore do Firestore, design syst
 - `/ba-monitoramento-equipe` — Boletim diário/semanal de equipe de WhatsApp (TPR, heatmap, palavras críticas, distribuição de carga)
 - `/ba-integracoes` — Conecta o cliente Eter a sistemas que ele já usa (Sheets, ClickUp, Notion, Trello, Stripe, Shopify, Calendly, RD Station, Pipedrive, webhook genérico) + orquestrador de fluxos + deploy
 - `/ba-controle-operacional` — Substitui a planilha do cliente Eter por controle via CSV + linguagem natural (financeiro, estoque, vendas, clientes, fornecedores, tarefas, funcionários, projetos, relatório mensal, dashboard)
-- `/eter-scope` — Lê dados do Eter CRM e desenha a solução técnica pós-call: módulos, stack, integrações, fora do escopo e estimativa de prazo
+
+### Eter CRM
+
+- `/ba-eter` — **Hub:** fluxo completo do pipeline Eter + quando invocar cada sub-skill. Começa aqui quando não souber por onde ir.
+- `/eter-briefing` — Gera briefing pré-reunião com qualificação e salva automaticamente no painel admin
+- `/eter-pipeline` — Snapshot do pipeline completo com alertas de clientes parados e próximas ações
+- `/eter-scope` — Escopo técnico pós-call: módulos, stack, integrações, fora do escopo e estimativa de prazo
+- `/eter-proposta` — Proposta comercial (versão WhatsApp ou PDF formal)
+- `/eter-roadmap-gen` — Roadmap 6 semanas personalizado ao cliente (mais rico que o template do CRM)
+- `/eter-weekly` — Relatório semanal de todos os clientes ativos com alertas e agenda sugerida
 
 Cada skill tem seu próprio SKILL.md na subpasta.
