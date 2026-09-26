@@ -173,13 +173,18 @@ export const metadata: Metadata = {
 
 ---
 
-### 4. Implementação do Componente Dropdown "Docs de IA"
+### 4. Implementação do Rodapé Moderno & Dropdown "Docs de IA"
 
-O componente é posicionado no rodapé da aplicação, permitindo ao usuário abrir a lista flutuante.
+O padrão de excelência de interface (referência `soceo.ai`) adota um rodapé escuro premium (`#000000` / `#09090b`) dividido em 4 colunas principais e uma barra inferior (sub-footer):
+1. **Hero / Newsletter ("Fique Conectado"):** Título expressivo, texto de contexto e campo de e-mail no formato pílula com botão circular de envio.
+2. **Links Rápidos:** Navegação essencial do produto/serviço.
+3. **Contato:** E-mail oficial e orientações diretas de suporte.
+4. **Siga-nos:** Ícones sociais circulares com microinterações refinadas (Instagram, X, LinkedIn, WhatsApp).
+5. **Sub-footer Inferior:** Copyright à esquerda; Política de Privacidade, Termos de Serviço e o dropdown **"Docs de IA"** alinhados à direita.
 
 #### Opção A: Implementação PHP / HTML + CSS + JS (Vanilla)
 
-Crie o arquivo reutilizável (ex: `web/_core/_layout/ai_docs_widget.php`):
+Crie o arquivo reutilizável do widget (ex: `web/_core/_layout/ai_docs_widget.php`):
 ```php
 <?php
 /**
