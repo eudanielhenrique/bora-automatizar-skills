@@ -4,6 +4,12 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ---
 
+## [1.9.0] — 2026-09-26
+
+### Skills
+
+- `/ba-ai-docs` (nova) — gera a suíte canônica de documentação para agentes e modelos de IA (padrão `/llms.txt`, `llms-full.txt`, `company.txt`, `integrations.txt`, `compare.txt`) e implementa o componente dropdown acessível "Docs de IA" no rodapé de qualquer aplicação (PHP ou React/Next.js). Inclui descoberta automática no `<head>` (`rel="alternate" type="text/plain"`), WAI-ARIA com fechamento por Escape/focusout/click-outside, estilização dark/light e conformidade com CSP. Inspirada no padrão de produção de `soceo.ai`.
+
 ## [1.8.0] — 2026-08-02
 
 ### Skills
