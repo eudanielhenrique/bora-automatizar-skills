@@ -10,11 +10,20 @@ echo "  ------------------------"
 echo ""
 
 # Utilitários Bora Automatizar
-for skill in ba-firestore-backup ba-firestore-restore ba-designer-system ba-proposta-comercial ba-oferta-produtizada ba-monitoramento-equipe ba-integracoes ba-controle-operacional ba-init ba-ai-docs; do
+for skill in ba-firestore-backup ba-firestore-restore ba-designer-system ba-proposta-comercial ba-oferta-produtizada ba-monitoramento-equipe ba-integracoes ba-controle-operacional ba-init ba-ai-docs route-task; do
     target="$SKILLS_DIR/$skill"
     if [ -L "$target" ] || [ -e "$target" ]; then rm -rf "$target"; fi
     ln -s "$SCRIPT_DIR/$skill" "$target"
     echo "  /$skill instalado"
+done
+
+# route-task também é um comando de shell (não só skill) — symlinka o binário pro PATH
+for bindir in "$HOME/.local/bin" "$HOME/bin"; do
+    if [ -d "$bindir" ]; then
+        ln -sf "$SCRIPT_DIR/route-task/bin/route-task" "$bindir/route-task"
+        echo "  route-task (comando) instalado em $bindir"
+        break
+    fi
 done
 
 # ba-eter hub
@@ -45,6 +54,7 @@ echo "    /ba-integracoes          Conectar sistemas existentes do cliente (Shee
 echo "    /ba-controle-operacional Controle operacional via CSV pro cliente sem sistema"
 echo "    /ba-init                 Início de projeto novo ou atualização de CHANGELOG/ARCHITECTURE/ROADMAP"
 echo "    /ba-ai-docs              Documentação para IAs (padrão /llms.txt) + dropdown 'Docs de IA'"
+echo "    /route-task              Roteia tarefa pro agente/modelo certo por complexidade (requer Orca)"
 echo ""
 echo "  — Eter CRM (ba-eter/) —"
 echo "    /ba-eter                 Hub: fluxo completo + quando usar cada skill do Eter"

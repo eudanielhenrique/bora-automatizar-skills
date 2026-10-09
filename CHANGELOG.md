@@ -4,6 +4,12 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ---
 
+## [1.10.0] — 2026-10-09
+
+### Skills
+
+- `/route-task` (nova) — classifica uma tarefa por complexidade (modelo barato julga: trivial/média/pesada/pesquisa) e despacha pro agente/modelo certo via Orca orchestration — Claude Haiku pra trivial, Claude Sonnet pra média, Codex pra tarefa agentic longa, Antigravity (Gemini) pra pesquisa. Também instala o comando `route-task` no PATH (`~/.local/bin` ou `~/bin`), chamável direto do shell por qualquer agente. **Requer o app Orca rodando** — só despacha de dentro de um terminal/pane aberto pelo Orca; fora disso só funciona em `--dry-run`.
+
 ## [1.9.0] — 2026-09-26
 
 ### Skills

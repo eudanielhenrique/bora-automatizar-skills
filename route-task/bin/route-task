@@ -1,0 +1,117 @@
+#!/usr/bin/env bash
+# Classifica uma tarefa (modelo barato julga) e despacha pro agente/modelo certo via Orca orchestration.
+# ponytail: classificação por heurística de prompt, sem fine-tune nem few-shot store. Upgrade: calibrar com histórico real se taxa de erro incomodar.
+set -euo pipefail
+
+usage() {
+  cat <<'EOF'
+Uso: route-task "<descrição da tarefa>" [--worktree current|new-child|<selector>] [--dry-run]
+
+Classifica a tarefa com um modelo barato e despacha via `orca orchestration worker-start`
+pro agente/modelo mais adequado:
+
+  trivial  -> claude haiku (effort low)      — fix pontual, 1-2 arquivos, pergunta direta
+  media    -> claude sonnet (effort medium)  — feature pequena, refactor local, debug
+  pesada   -> codex (modelo próprio)         — tarefa autônoma grande, multi-arquivo, agentic longo
+  pesquisa -> antigravity/gemini (agy)       — pesquisa, análise multimodal, web-heavy
+
+--dry-run mostra a classificação e o comando que seria executado, sem despachar.
+EOF
+  exit 1
+}
+
+[ $# -ge 1 ] || usage
+[ "$1" = "--help" ] || [ "$1" = "-h" ] && usage
+
+TASK="$1"; shift
+WORKTREE="new-child"
+DRY_RUN=0
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --worktree) WORKTREE="$2"; shift 2 ;;
+    --dry-run) DRY_RUN=1; shift ;;
+    *) usage ;;
+  esac
+done
+
+CLASSIFY_PROMPT=$(cat <<EOF
+Classifique a tarefa abaixo em UMA destas categorias e responda SÓ com JSON, sem markdown, sem explicação:
+
+{"category": "trivial|media|pesada|pesquisa", "reason": "<motivo em até 15 palavras>"}
+
+Critérios:
+- trivial: fix pontual, 1-2 arquivos, pergunta direta, mudança mecânica.
+- media: feature pequena, refactor local, debug que exige entender poucos arquivos.
+- pesada: tarefa agentic longa, multi-arquivo, multi-etapa, exige autonomia sustentada.
+- pesquisa: pesquisa, comparação de opções, análise de conteúdo web/multimodal, sem escrever muito código.
+
+Tarefa:
+"""
+$TASK
+"""
+EOF
+)
+
+CLASSIFICATION=$(claude -p --model claude-haiku-5-5 --output-format text "$CLASSIFY_PROMPT")
+CATEGORY=$(echo "$CLASSIFICATION" | jq -r '.category' 2>/dev/null || echo "")
+REASON=$(echo "$CLASSIFICATION" | jq -r '.reason' 2>/dev/null || echo "")
+
+if [ -z "$CATEGORY" ]; then
+  echo "Classificação falhou, saída crua:" >&2
+  echo "$CLASSIFICATION" >&2
+  exit 1
+fi
+
+case "$CATEGORY" in
+  trivial)  AGENT="claude"; MODEL="claude-haiku-5-5";  EFFORT="low" ;;
+  media)    AGENT="claude"; MODEL="claude-sonnet-5-5"; EFFORT="medium" ;;
+  pesada)   AGENT="codex";  MODEL="";                  EFFORT="" ;;
+  pesquisa) AGENT="antigravity"; MODEL=""; EFFORT="" ;;
+  *)
+    echo "Categoria desconhecida: $CATEGORY" >&2
+    exit 1
+    ;;
+esac
+
+CMD=(orca orchestration worker-start --spec "$TASK" --agent "$AGENT" --worktree "$WORKTREE" --display-name "route:$CATEGORY")
+
+# --name só é aceito (e exigido) quando a worktree é nova; em current/selector existente é rejeitado.
+case "$WORKTREE" in
+  new-child|new-top-level) CMD+=(--name "route-${CATEGORY}-$(date +%s)") ;;
+esac
+[ -n "$MODEL" ] && CMD+=(--model "$MODEL")
+[ -n "$EFFORT" ] && CMD+=(--effort "$EFFORT")
+
+echo "categoria=$CATEGORY agente=$AGENT modelo=${MODEL:-default} effort=${EFFORT:-default}"
+echo "motivo: $REASON"
+
+if [ "$DRY_RUN" -eq 1 ]; then
+  echo "comando: ${CMD[*]} --run <run_id>"
+  exit 0
+fi
+
+if [ -z "${ORCA_TERMINAL_HANDLE:-}" ]; then
+  echo "erro: sem ORCA_TERMINAL_HANDLE — rode isso de dentro de um terminal/pane do app Orca, não de um shell solto (Warp, iTerm, etc)." >&2
+  exit 1
+fi
+
+# worker-start exige esse terminal vinculado a um Run; cria um se não tiver.
+# run-current retorna ok:true mesmo sem Run (result.run == null), então checa o run, não o ok.
+RUN_CURRENT=$(orca orchestration run-current --json 2>/dev/null || true)
+RUN_ID=$(echo "$RUN_CURRENT" | jq -r '.result.run.id // empty' 2>/dev/null || true)
+
+if [ -z "$RUN_ID" ]; then
+  RUN_CREATE=$(orca orchestration run-create --objective "$TASK" --json)
+  RUN_ID=$(echo "$RUN_CREATE" | jq -r '.result.run.id // empty')
+  if [ -z "$RUN_ID" ]; then
+    echo "erro: falhou criar/vincular Run:" >&2
+    echo "$RUN_CREATE" >&2
+    exit 1
+  fi
+fi
+
+CMD+=(--run "$RUN_ID")
+echo "comando: ${CMD[*]}"
+
+"${CMD[@]}"

@@ -1,4 +1,4 @@
-# bora-automatizar-skills (v1.8)
+# bora-automatizar-skills (v1.10)
 
 Skills operacionais para o Claude Code: utilitários Bora Automatizar (Firestore, design system, propostas, monitoramento, integrações, controle operacional) e suite completa do Eter CRM (pipeline, briefing, escopo, proposta, roadmap, weekly).
 
@@ -15,6 +15,7 @@ Skills operacionais para o Claude Code: utilitários Bora Automatizar (Firestore
 - `/ba-integracoes` — Conecta o cliente Eter a sistemas que ele já usa (Sheets, ClickUp, Notion, Trello, Stripe, Shopify, Calendly, RD Station, Pipedrive, webhook genérico) + orquestrador de fluxos + deploy
 - `/ba-controle-operacional` — Substitui a planilha do cliente Eter por controle via CSV + linguagem natural (financeiro, estoque, vendas, clientes, fornecedores, tarefas, funcionários, projetos, relatório mensal, dashboard)
 - `/ba-init` — Início de projeto (escolhe stack, estrutura, segurança day-1) ou documentação contínua (CHANGELOG.md/ARCHITECTURE.md/ROADMAP.md), dependendo se o projeto já existe ou não
+- `/route-task` — Classifica uma tarefa por complexidade e delega pro agente/modelo certo (Claude Haiku/Sonnet, Codex, Antigravity) via Orca orchestration. **Requer o app Orca** (onorca.dev) rodando — não funciona em Claude Code solto.
 
 ### Eter CRM
 
