@@ -30,6 +30,8 @@ bora-automatizar-skills resolve isso. Você codifica o padrão uma vez. Depois e
 | `/ba-controle-operacional` | Substitui a planilha de um cliente Eter por controle via CSV + linguagem natural — financeiro, estoque, vendas, clientes, fornecedores, tarefas, funcionários, projetos, relatório mensal, dashboard |
 | `/ba-init` | Duas cabeças: em projeto novo, escolhe stack/estrutura/segurança day-1 como um init de verdade; em projeto em andamento, atualiza CHANGELOG.md/ARCHITECTURE.md/ROADMAP.md com o que mudou — sempre analisando código e git reais, nunca inventando |
 | `/ba-ai-docs` | Gera a suíte completa de documentação para IAs (padrão `/llms.txt` + GEO) e adiciona o dropdown acessível 'Docs de IA' no rodapé de qualquer site ou app |
+| `/ba-seo-local` | Gera SEO local programático (matriz serviço×cidade, hub por serviço, sitemap) a partir do contexto real do projeto, ou diagnostica por que páginas de SEO local pararam de rankear |
+| `/ba-site-apresentacao` | Arquitetura visual de apresentação scrollytelling da BoraAutomatizar (Dark Obsidian Canvas, iluminação em azul elétrico #0060F0/#297FFF, tipografia editorial peso 400, header cápsula, modo apresentação, consoles operacionais agent-first e simulador interativo) |
 
 ---
 
@@ -72,7 +74,7 @@ Puxa o que tiver de novo e reinstala os symlinks.
 ### Desinstalação
 
 ```bash
-for s in ba-firestore-backup ba-firestore-restore ba-designer-system ba-proposta-comercial ba-oferta-produtizada ba-monitoramento-equipe ba-integracoes ba-controle-operacional ba-init ba-ai-docs; do rm -rf ~/.claude/skills/$s; done && rm -rf ~/.claude/skills/bora-automatizar-skills
+for s in ba-firestore-backup ba-firestore-restore ba-designer-system ba-proposta-comercial ba-oferta-produtizada ba-monitoramento-equipe ba-integracoes ba-controle-operacional ba-init ba-ai-docs ba-seo-local; do rm -rf ~/.claude/skills/$s; done && rm -rf ~/.claude/skills/bora-automatizar-skills
 ```
 
 ---

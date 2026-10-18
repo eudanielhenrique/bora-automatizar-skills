@@ -4,6 +4,12 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ---
 
+## [1.11.0] — 2026-10-09
+
+### Skills
+
+- `/ba-seo-local` (nova) — gera SEO local programático (matriz serviço×cidade, página hub por serviço, sitemap.xml/robots.txt, schema.org Service) a partir do contexto real do projeto (serviços e área de atuação extraídos do código, nunca inventados), ou diagnostica queda de ranking em páginas já existentes. Codifica a lição real de um incidente em produção (scorpionfish/boraautomatizar.com.br): páginas de cidade geradas programaticamente ficaram órfãs (só existiam no sitemap, zero link interno) e pararam de rankear — o skill força página hub por serviço + link bidirecional + footer global apontando pros hubs.
+
 ## [1.10.0] — 2026-10-09
 
 ### Skills

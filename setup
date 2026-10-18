@@ -10,7 +10,7 @@ echo "  ------------------------"
 echo ""
 
 # Utilitários Bora Automatizar
-for skill in ba-firestore-backup ba-firestore-restore ba-designer-system ba-proposta-comercial ba-oferta-produtizada ba-monitoramento-equipe ba-integracoes ba-controle-operacional ba-init ba-ai-docs route-task; do
+for skill in ba-firestore-backup ba-firestore-restore ba-designer-system ba-proposta-comercial ba-oferta-produtizada ba-monitoramento-equipe ba-integracoes ba-controle-operacional ba-init ba-ai-docs ba-seo-local ba-site-apresentacao route-task; do
     target="$SKILLS_DIR/$skill"
     if [ -L "$target" ] || [ -e "$target" ]; then rm -rf "$target"; fi
     ln -s "$SCRIPT_DIR/$skill" "$target"
@@ -54,6 +54,8 @@ echo "    /ba-integracoes          Conectar sistemas existentes do cliente (Shee
 echo "    /ba-controle-operacional Controle operacional via CSV pro cliente sem sistema"
 echo "    /ba-init                 Início de projeto novo ou atualização de CHANGELOG/ARCHITECTURE/ROADMAP"
 echo "    /ba-ai-docs              Documentação para IAs (padrão /llms.txt) + dropdown 'Docs de IA'"
+echo "    /ba-seo-local            SEO local programático (matriz serviço×cidade, hub por serviço) ou diagnóstico de queda de ranking"
+echo "    /ba-site-apresentacao    Site apresentação high-end (Keynote mode, halo, orbital globe, telemetria)"
 echo "    /route-task              Roteia tarefa pro agente/modelo certo por complexidade (requer Orca)"
 echo ""
 echo "  — Eter CRM (ba-eter/) —"
